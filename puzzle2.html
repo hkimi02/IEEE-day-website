@@ -110,11 +110,31 @@
     </footer>
 
     <!-- Custom JavaScript -->
+    <!-- Custom JavaScript -->
     <script>
+        // Function to initialize draggable logos
+        function initializeDraggable($element) {
+            $element.draggable({
+                revert: "invalid",
+                stack: ".logo",
+                start: function (event, ui) {
+                    // Prevent the page from scrolling while dragging on touch devices
+                    if ('ontouchstart' in window) {
+                        $("body").css("overflow", "hidden");
+                    }
+                },
+                stop: function () {
+                    // Restore scrolling on touch devices after dragging
+                    if ('ontouchstart' in window) {
+                        $("body").css("overflow", "auto");
+                    }
+                }
+            });
+        }
+
         // Initialize the draggable logos
-        $(".logo").draggable({
-            revert: "invalid",
-            stack: ".logo",
+        $(".logo").each(function () {
+            initializeDraggable($(this));
         });
 
         // Initialize the dropzones
@@ -143,6 +163,7 @@
             return droppedIndex === expectedOrder - 1;
         }
     </script>
+
 </body>
 
 </html>
