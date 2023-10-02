@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Company Valuation</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .investment-document {
+            border: 2px solid #ccc;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #valuation-input {
+            width: 100px;
+        }
+
+        .none {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="./images/IEEE-Day.png" alt="IEEE Day Logo" width="60" height="60">
+        </a>
+        <div class="mx-auto order-0">
+            <span class="navbar-text">
+                <strong>IEEE Day</strong><br>
+                Leveraging Technology for a Better Tomorrow
+            </span>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Green Company Valuation Puzzle</h1>
+        <div class="investment-document">
+            <h2>Investment Document</h2>
+            <p>The Green Company is seeking investment for its environmental projects.</p>
+            <img src="./images/fininacial_document.png" alt="aa" width="1050px" />
+            <p>Can you calculate the total valuation of the company after the investment?</p>
+            <div class="none" id="result">
+                <h2>you completed the challenge succesfully</h2>
+                <a href="puzzle4.html"> <button class="btn btn-success">to the next puzzle</button></a>
+            </div>
+            <div class="none" id="result2">
+                <h2>try again !</h2>
+            </div>
+            <input type="text" id="investment-offer" class="form-control" placeholder="total valuation of company ?">
+            <button class="btn btn-success" id="getTrial">try</button>
+        </div>
+
+        <footer class=" text-dark text-center py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="./images/ieee_iset_bz.jpg" alt="Image 1" class="img-fluid" height="50px" width="50px">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="./images/ieee_logo.jpg" alt="Image 3" class="img-fluid" height="50px" width="50px">
+
+                    </div>
+                    <div class="col-md-4">
+                        <img src="./images/image-removebg-preview (24).png" alt="Image 2" class="img-fluid"
+                            height="50px" width="50px">
+                    </div>
+                </div>
+                <h6 class="mt-3">IEEE DAY 2023 celebration </h6>
+                <p>&copy; 2023 IEEE iset bizerte SB</p>
+                <div>
+                    <a href="#" class="text-dark mr-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-dark mr-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-dark"><i class="far fa-envelope"></i></a>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            //60.245
+            document.querySelector("#getTrial").addEventListener('click', function () {
+                var input = document.querySelector("#investment-offer").value;
+                if (input == 60.245) {
+                    document.querySelector("#result").classList.remove("none");
+                    document.querySelector("#result2").classList.add("none");
+                }
+                else {
+                    document.querySelector("#result").classList.add("none");
+                    document.querySelector("#result2").classList.remove("none");
+                }
+            })
+        </script>
+</body>
+
+</html>

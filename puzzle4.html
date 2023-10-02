@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Personality Emoji Puzzle</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Add your custom CSS styles here */
+        #puzzle-container {
+            text-align: center;
+        }
+
+        #emoji-puzzle,
+        #emoji-puzzle2,
+        #emoji-puzzle3 {
+            font-size: 2em;
+        }
+
+        .none {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="./images/IEEE-Day.png" alt="IEEE Day Logo" width="60" height="60">
+        </a>
+        <div class="mx-auto order-0">
+            <span class="navbar-text">
+                <strong>IEEE Day</strong><br>
+                Leveraging Technology for a Better Tomorrow
+            </span>
+        </div>
+    </nav>
+    <div class="container shadow-lg">
+        <h1 class="text-center">from the sequence of emojis try to guess the name of the famous tech
+            personality</h1>
+        <div id="puzzle-container" class="mt-5">
+            <div id="emoji-puzzle"></div>
+            <input type="text" id="guess-input" class="form-control mt-3" placeholder="Guess the tech personality">
+            <p id="result" class="mt-3"></p>
+            <div id="emoji-puzzle2"></div>
+            <input type="text" id="guess-input2" class="form-control mt-3" placeholder="Guess the tech personality">
+            <p id="result2" class="mt-3"></p>
+            <div id="emoji-puzzle3"></div>
+            <input type="text" id="guess-input3" class="form-control mt-3" placeholder="Guess the tech personality">
+            <p id="result3" class="mt-3"></p>
+            <button id="check-button" class="btn btn-primary mt-3">Check</button>
+        </div>
+        <a href="puzzle5.html"> <button class="btn btn-success none" id="correct"> to the next puzzle -></button></a>
+    </div>
+
+    <footer class=" text-dark text-center py-4">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="./images/ieee_iset_bz.jpg" alt="Image 1" class="img-fluid" height="50px" width="50px">
+                </div>
+                <div class="col-md-4">
+                    <img src="./images/ieee_logo.jpg" alt="Image 3" class="img-fluid" height="50px" width="50px">
+
+                </div>
+                <div class="col-md-4">
+                    <img src="./images/image-removebg-preview (24).png" alt="Image 2" class="img-fluid" height="50px"
+                        width="50px">
+                </div>
+            </div>
+            <h6 class="mt-3">IEEE DAY 2023 celebration </h6>
+            <p>&copy; 2023 IEEE iset bizerte SB</p>
+            <div>
+                <a href="#" class="text-dark mr-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-dark mr-3"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-dark"><i class="far fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Tech personality represented by emojis
+        const techPersonalityEmoji = "🔋🍏💻📱💡";
+        const techPersonalityEmoji2 = "🍎💻📱🌐🚀";
+        const techPersonalityEmoji3 = "🖥️💼💰📚🌍";
+        const correctName = "elon musk";
+        const correctName2 = "steve jobs";
+        const correctName3 = "bill gates";
+
+
+        function displayPuzzle() {
+            document.getElementById("emoji-puzzle").textContent = techPersonalityEmoji;
+            document.getElementById("emoji-puzzle2").textContent = techPersonalityEmoji2;
+            document.getElementById("emoji-puzzle3").textContent = techPersonalityEmoji3;
+        }
+
+        // Function to check the user's guess
+        function checkGuess() {
+            let correct = false;
+            const userGuess = document.getElementById("guess-input").value.toLowerCase();
+            const userGuess2 = document.getElementById("guess-input2").value.toLowerCase();
+            const userGuess3 = document.getElementById("guess-input3").value.toLowerCase();
+
+            if (userGuess === correctName) {
+                document.getElementById("result").textContent = "Correct! It's Elon Musk!";
+                correct = true;
+            } else {
+                document.getElementById("result").textContent = "Try again!";
+                correct = false;
+            }
+            if (userGuess2 === correctName2) {
+                document.getElementById("result2").textContent = "Correct! It's Steve Jobs!";
+                correct = true;
+            } else {
+                document.getElementById("result2").textContent = "Try again!";
+                correct = false;
+            }
+            if (userGuess3 === correctName3) {
+                document.getElementById("result3").textContent = "Correct! It's Bill Gates!";
+                correct = true;
+            } else {
+                document.getElementById("result3").textContent = "Try again!";
+                correct = false;
+            }
+            if (correct) {
+                document.querySelector("#correct").classList.remove("none");
+            }
+        }
+        // Event listener for the "Check" button
+        document.getElementById("check-button").addEventListener("click", checkGuess);
+
+        // Display the puzzle when the page loads
+        window.addEventListener("load", displayPuzzle);
+    </script>
+</body>
+
+</html>

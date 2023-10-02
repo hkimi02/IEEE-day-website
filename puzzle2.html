@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Puzzle</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include jQuery and jQuery UI -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .logo-container {
+            margin: 10px;
+            display: inline-block;
+        }
+
+        .dropzone {
+            width: 400px;
+            height: 400px;
+            border: 2px dashed #ccc;
+            margin: 10px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .logo {
+            height: 300px;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="./images/IEEE-Day.png" alt="IEEE Day Logo" width="60" height="60">
+        </a>
+        <div class="mx-auto order-0">
+            <span class="navbar-text">
+                <strong>IEEE Day</strong><br>
+                Leveraging Technology for a Better Tomorrow
+            </span>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Arrange the Company Logos</h1>
+        <p>Drag and drop the logos into the correct chronological order:</p>
+
+        <div class="logo-container">
+            <img src="./images/puzzle2/bny_mellon_logo.jpg" alt="BNY Mellon Logo" class="logo" id="logo-bny">
+        </div>
+        <div class="logo-container">
+            <img src="./images/puzzle2/VOYA1.png" alt="Voya Logo" class="logo" id="logo-voya">
+        </div>
+        <div class="logo-container">
+            <img src="./images/puzzle2/The-Estee-Lauder-Companies.jpg" alt="The Estee Logo" class="logo"
+                id="logo-estee">
+        </div>
+        <!-- Add more logo containers with actual company logos -->
+
+        <!-- Dropzones -->
+        <div class="dropzone" id="dropzone1" data-order="1">
+            <h2>1</h2>
+        </div>
+        <div class="dropzone" id="dropzone2" data-order="2">
+            <h2>2</h2>
+        </div>
+        <div class="dropzone" id="dropzone3" data-order="3">
+            <h2>3</h2>
+        </div>
+
+        <a href="./puzzle3.html"><button id="nextButton" style="display: none;" class="btn btn-primary mt-3">Proceed
+                to the Next Puzzle</button></a>
+    </div>
+    <footer class=" text-dark text-center py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="./images/ieee_iset_bz.jpg" alt="Image 1" class="img-fluid" height="50px" width="50px">
+                </div>
+                <div class="col-md-4">
+                    <img src="./images/ieee_logo.jpg" alt="Image 3" class="img-fluid" height="50px" width="50px">
+
+                </div>
+                <div class="col-md-4">
+                    <img src="./images/image-removebg-preview (24).png" alt="Image 2" class="img-fluid" height="50px"
+                        width="50px">
+                </div>
+            </div>
+            <h6 class="mt-3">IEEE DAY 2023 celebration </h6>
+            <p>&copy; 2023 IEEE iset bizerte SB</p>
+            <div>
+                <a href="#" class="text-dark mr-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-dark mr-3"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-dark"><i class="far fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize the draggable logos
+        $(".logo").draggable({
+            revert: "invalid",
+            stack: ".logo",
+        });
+
+        // Initialize the dropzones
+        $(".dropzone").droppable({
+            accept: ".logo",
+            drop: function (event, ui) {
+                // Handle drop event here
+                var droppedLogoId = ui.draggable.attr("id");
+                var expectedOrder = $(this).data("order");
+
+                if (checkChronologicalOrder(droppedLogoId, expectedOrder)) {
+                    ui.draggable.addClass("correct"); // Add a class for styling
+                    if ($(".correct").length === $(".logo").length) {
+                        $("#nextButton").show();
+                    }
+                }
+            }
+        });
+
+        // Function to check the chronological order
+        function checkChronologicalOrder(droppedLogoId, expectedOrder) {
+            // Define the chronological order based on the provided list
+            var chronologicalOrder = ['logo-bny', 'logo-voya', 'logo-estee'];
+            var droppedIndex = chronologicalOrder.indexOf(droppedLogoId);
+
+            return droppedIndex === expectedOrder - 1;
+        }
+    </script>
+</body>
+
+</html>

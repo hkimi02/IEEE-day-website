@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decode the Name</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="./images/IEEE-Day.png" alt="IEEE Day Logo" width="60" height="60">
+        </a>
+        <div class="mx-auto order-0">
+            <span class="navbar-text">
+                <strong>IEEE Day</strong><br>
+                Leveraging Technology for a Better Tomorrow
+            </span>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Decode the Name</h1>
+        <p>Can you decode the binary sequence to reveal the a famous company’s slogan
+            supporting the climate change cause and employing eco-friendly
+            strategies .?</p>
+        <div id="binarySequence">01001000 01110101 01100101 01111010 01110110 01100101 01110011</div>
+        <div id="decodedName" style="display: none;"></div>
+        <br>
+        <div id="puzzle2Button" style="display: none;">
+            <a href="puzzle2.html" class="btn btn-primary">Proceed to Puzzle 2</a>
+        </div>
+        <br>
+        <div>
+            <input type="text" id="userInput" class="form-control" placeholder="Enter your guess">
+            <br>
+            <button id="checkButton" class="btn btn-success">Check</button>
+        </div>
+    </div>
+
+    <footer class=" text-dark text-center py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="./images/ieee_iset_bz.jpg" alt="Image 1" class="img-fluid" height="50px" width="50px">
+                </div>
+                <div class="col-md-4">
+                    <img src="./images/ieee_logo.jpg" alt="Image 3" class="img-fluid" height="50px" width="50px">
+
+                </div>
+                <div class="col-md-4">
+                    <img src="./images/image-removebg-preview (24).png" alt="Image 2" class="img-fluid" height="50px"
+                        width="50px">
+                </div>
+            </div>
+            <h6 class="mt-3">IEEE DAY 2023 celebration </h6>
+            <p>&copy; 2023 IEEE iset bizerte SB</p>
+            <div>
+                <a href="#" class="text-dark mr-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-dark mr-3"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-dark"><i class="far fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        const binarySequence = "01000001 01100011 01100011 01100101 01101100 01100101 01110010 01100001 01110100 01101001 01101110 01100111 00100000 01110100 01101000 01100101 00100000 01010111 01101111 01110010 01101100 01100100 00100111 01110011 00100000 01010100 01110010 01100001 01101110 01110011 01101001 01110100 01101001 01101111 01101110 00100000 01110100 01101111 00100000 01010011 01110101 01110011 01110100 01100001 01101001 01101110 01100001 01100010 01101100 01100101 00100000 01000101 01101110 01100101 01110010 01100111 01111001";
+        const decodedName = "Accelerating the World's Transition to Sustainable Energy"; // Replace with the actual name you want to decode
+
+        document.getElementById("checkButton").addEventListener("click", function () {
+            const userInput = document.getElementById("userInput").value;
+            if (userInput === decodedName) {
+                document.getElementById("decodedName").textContent = `Congratulations! You've decoded the name: ${decodedName}`;
+                document.getElementById("decodedName").style.display = "block";
+                document.getElementById("puzzle2Button").style.display = "block";
+            } else {
+                document.getElementById("decodedName").textContent = `incorrect please try again !`;
+            }
+        });
+    </script>
+</body>
+
+</html>

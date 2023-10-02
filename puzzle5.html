@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Terms Puzzle</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .none {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="./images/IEEE-Day.png" alt="IEEE Day Logo" width="60" height="60">
+        </a>
+        <div class="mx-auto order-0">
+            <span class="navbar-text">
+                <strong>IEEE Day</strong><br>
+                Leveraging Technology for a Better Tomorrow
+            </span>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h1 class="mb-4">Tech Terms Puzzle</h1>
+        <div class="none" id="result_success">
+            <h3 class="alert alert-success text-center">Congratulations! You have completed the puzzle.</h3>
+            <a href="./puzzle6/index.html"><button class="btn btn-success">to the final puzzle 🎉🎊 ---> </button></a>
+        </div>
+        <div class="none justify-items-center" id="result_failure">
+            <h3 class="alert alert-danger text-center">Try again. One or more answers are incorrect.</h3>
+        </div>
+        <div class="form-group">
+            <label for="html-answer">Complete the tech term: H__perText Markup Language (HTML)</label>
+            <input type="text" class="form-control" id="html-answer" placeholder="Your answer">
+        </div>
+
+        <div class="form-group">
+            <label for="css-answer">Cascading Style S__ts (CSS) is used for styling web pages.</label>
+            <input type="text" class="form-control" id="css-answer" placeholder="Your answer">
+        </div>
+
+        <div class="form-group">
+            <label for="js-answer">JavaScript (JS) is a programming language used for adding interactivity to
+                websites.</label>
+            <input type="text" class="form-control" id="js-answer" placeholder="Your answer">
+        </div>
+        <button id="check-button" class="btn btn-primary">Check Answers</button>
+    </div>
+    <footer class=" text-dark text-center py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="./images/ieee_iset_bz.jpg" alt="Image 1" class="img-fluid" height="50px" width="50px">
+                </div>
+                <div class="col-md-4">
+                    <img src="./images/ieee_logo.jpg" alt="Image 3" class="img-fluid" height="50px" width="50px">
+
+                </div>
+                <div class="col-md-4">
+                    <img src="./images/image-removebg-preview (24).png" alt="Image 2" class="img-fluid" height="50px"
+                        width="50px">
+                </div>
+            </div>
+            <h6 class="mt-3">IEEE DAY 2023 celebration </h6>
+            <p>&copy; 2023 IEEE iset bizerte SB</p>
+            <div>
+                <a href="#" class="text-dark mr-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-dark mr-3"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-dark"><i class="far fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Correct letters for each word
+        const htmlAnswer = "Y";
+        const cssAnswer = "c";
+        const jsAnswer = "a";
+        const lastAnswer = "a";
+
+        // Function to check answers
+        function checkAnswers() {
+            const htmlUserAnswer = document.getElementById("html-answer").value.toUpperCase();
+            const cssUserAnswer = document.getElementById("css-answer").value.toLowerCase();
+            const jsUserAnswer = document.getElementById("js-answer").value.toLowerCase();
+
+            if (htmlUserAnswer === htmlAnswer && cssUserAnswer === cssAnswer && jsUserAnswer === jsAnswer) {
+                document.getElementById("result_success").classList.remove("none");
+                document.getElementById("result_failure").classList.add("none");
+            } else {
+                document.getElementById("result_success").classList.add("none");
+                document.getElementById("result_failure").classList.remove("none");
+            }
+
+        }
+        // Event listener for the "Check Answers" button
+        document.getElementById("check-button").addEventListener("click", checkAnswers);
+    </script>
+</body>
+
+</html>
